@@ -6,10 +6,7 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   
   validates :email, presence: true, length: { maximum: 255 }, uniqueness: { case_sensitive: false }
-  validates :first_name, presence: true, length: { maximum: 50 }
-  validates :last_name, presence: true, length: { maximum: 50 }
-  validates :current_city, presence: true, length: { maximum: 50 }
-  validates :password, presence: true, length: { maximum: 50 }
+  validates :first_name, :last_name, :current_city, :password, presence: true, length: { maximum: 50 }
 
 
 	def self.confirm(params)
