@@ -1,5 +1,6 @@
 <br>
 <div class="choose_pic">
+	<!-- TODO: In-Line CSS Styling is shameful >:( -->
 <div class ="container" style="width:50%; position:relative; dispay:inline; float:left;">
 
 <div>
@@ -19,12 +20,12 @@
 		this profile was created on: <%= @user.created_at %>
 	</div>
 	<div><%= button_to "Edit User", edit_user_path, method: :get %>
-				
+
 	</div>
 </div>
 
 
-<div  style="width:50%; position:relative; display:inline; float:right;"> 
+<div  style="width:50%; position:relative; display:inline; float:right;">
 	<h2>Posts</h2>
 
 	<% @posts.each do |post| %>
@@ -33,11 +34,7 @@
 			<div style="display:inline-block"><%= button_to "Edit Post", edit_post_path(post.id), method: :get%>	</div>
 			<div style="display:inline-block"><%= button_to "Delete Post", delete_post_path(post.id), :data => {:confirm => 'Are you sure?'}, method: :delete %></div>
 			<br>
-		</ol>	
+		</ol>
 	<% end %>
- <!-- <%= yield %> -->
 
 </div>
-
-
-

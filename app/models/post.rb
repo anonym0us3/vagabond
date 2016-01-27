@@ -9,5 +9,7 @@ class Post < ActiveRecord::Base
     too_short: "must have at least %{count} character",
     too_long: "must have at most %{count} characters"
   }
+
+  # TODO: add a similar validation above to below
   validates :content, presence: true
 end

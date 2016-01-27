@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
 	end
 
 	def create
-		user_params = params.require(:user).permit(:email, :password)
 		@user = User.confirm(user_params)
 		if @user
 			login(@user)
@@ -19,5 +18,11 @@ class SessionsController < ApplicationController
 		logout
 		redirect_to root_path
 	end
-	
+
+	private
+
+	def user_params
+		params.require(:user).permit(:email, :password)
+	end
+
 end

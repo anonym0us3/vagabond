@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :logged_in?, only: [:index, :edit, :show, :update]
-
+  #TODO: experiment with different redirects/renders to come up with a more consistent approach (redirect_to, implicit render, path redirection, etc.)
   def index
     @users = User.all
   end
@@ -11,7 +11,6 @@ class UsersController < ApplicationController
   end
 
   def create
-  	user_params = params.require(:user).permit(:first_name, :last_name, :email, :password, :current_city, :avatar)
   	@user = User.create(user_params)
     login(@user)
   	redirect_to @user
@@ -20,26 +19,26 @@ class UsersController < ApplicationController
   def show
   	@user = User.find_by_id(params[:id])
     @posts = @user.posts
+
     if @user != current_user
       redirect_to current_user
     end
   end
 
-  def edit 
+  def edit
     @user = User.find_by_id(params[:id])
   end
 
   def update
     user = User.find_by_id(params[:id])
-    user_params = get_user_params
     user.update_attributes(user_params)
+
     redirect_to user_path(user)
   end
 
   private
-    def get_user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :current_city)
+    def user_params
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :current_city, :avatar)
     end
 
-#delete method will require @user.avatar = nil
 end

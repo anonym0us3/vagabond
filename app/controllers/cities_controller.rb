@@ -10,8 +10,9 @@ class CitiesController < ApplicationController
 		@cities = City.new
 	end
 
+	#TODO: good coding convention on the get prefix, i'm going to use just city_params as per our wdi labs
 	def create
-		@cities = City.create(get_city_params)
+		@cities = City.create(city_params)
 
 		redirect_to '/show.html.erb'
 	end
@@ -23,7 +24,7 @@ class CitiesController < ApplicationController
 
 	private
 
-	def get_city_params
+	def city_params
 		params.require(:cities).permit(:name)
 	end
 end

@@ -3,6 +3,7 @@
 <div id="img">
      <%= image_tag "http://i0.wp.com/invoice-factoring-information.com/components/com_k2/images/placeholder/user.png" %></div>
 <div id='float'>
+  <!-- TODO: I am unable to create user, check your form_for  -->
     <%= form_for @user, html: { multipart: true } do |f| %>
     <%= f.file_field :avatar %>
 </div>
@@ -10,14 +11,13 @@
    <div id='form'>
      <p> <%= f.email_field :email, placeholder: "Email" %> </p>
      <p> <%= f.text_field :first_name, placeholder: "First Name" %> </p>
-     <p> <%= f.text_field :last_name, placeholder: "Last Name" %> </p> 
+     <p> <%= f.text_field :last_name, placeholder: "Last Name" %> </p>
      <p> <%= f.text_field :current_city, placeholder: "Current City" %> </p>
      <p> <%= f.password_field :password, placeholder: "Password" %> </p>
-    <br>  
-  </div> 
+    <br>
+  </div>
   <div class='center' style='padding-left: 100px;'>
   <%= f.submit "Sign Up" %>
   </div>
   <% end %>
 </body>
-

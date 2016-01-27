@@ -12,7 +12,8 @@
 </head>
 
 <header>
-<div>     
+<div>
+     <!-- TODO: There is nothing stopping clipart.me from changing this image to a dead baby and your site produly displaying it. Consider storing in your assets. -->
   <img id='logo' src="http://png.clipart.me/graphics/thumbs/169/backpacker-standing-on-top-of-mountain-vector-illustration_16948822.jpg">
     <h1>Vagabond</h1>
 
@@ -25,7 +26,7 @@
   <% if current_user %>
     <li ><%= link_to "Profile", user_path(current_user) %></li>
     <li><%= link_to "Log Out", logout_path %></li>
-  <% else %>   
+  <% else %>
     <li><%= link_to "Log In", login_path %></li>
     <li><%= link_to "Create Account", new_user_path %></li>
   <% end %>
